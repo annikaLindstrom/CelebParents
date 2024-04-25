@@ -27,16 +27,15 @@ with st.expander("**Acknowledgements**"):
     st.markdown('''
         CelebMatch was brought into existence through the efforts of our team.  
         
-        **Annika** laid the foundation with a clear, efficient starter code that processed the images and created embeddings, all while juggling the joys and jitters of welcoming a new baby into her life. 
+        **Annika (amh227)** laid the foundation with our starter code which processed the images and created embeddings, all while juggling the joys and jitters of welcoming a new baby into her life. 
         
-        **Fatima** then extended that code to incorporate the [DeepFace library](https://github.com/serengil/deepface/tree/master). With the indispensable aids of the internet and Stack Overflow, and frequent recourse to the 'phone a friend' lifeline, she developed the code that calculates the distances between user images and celebrities using [FAISS](https://ai.meta.com/tools/faiss/).  Much like managing a 4-month-old, she handled unexpected bugs with grace and a sense of humor.
+        **Fatima (fa83)** then extended that code to incorporate the [DeepFace library](https://github.com/serengil/deepface/tree/master). With the indispensable aids of the internet and Stack Overflow, and frequent recourse to the 'phone a friend' lifeline, she developed the code that calculates the distances between user images and celebrities using [FAISS](https://ai.meta.com/tools/faiss/).  Much like managing a 4-month-old, she handled unexpected bugs with grace and a sense of humor.
         
-        **Rafael** .........
+        **Rafael (rpa9)** .........
 
-        **Fatima** also crafted the press release and FAQ. 
+        **Fatima (fa83)** also crafted the press release and FAQ, and put together the streamlit. 
         
-        **Fatima** put together the streamlit.
-    ''')
+           ''')
 
 st.header('**FAQs**')
 
