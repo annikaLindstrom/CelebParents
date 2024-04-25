@@ -93,7 +93,6 @@ import cv2
 import ast
 import numpy as np
 import urllib.request
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import normalize
 
 # Header for image choice
