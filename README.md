@@ -40,8 +40,12 @@ Copy and paste the URL as it is written in your terminal.
 ## Using conda locally
 
 1. Make sure that you have Anaconda or Miniconda installed. [Click here for download options](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
-2. Open up terminal, and go to the folder that holds this repository. This respository should include `environment.yml`.
-3. Create a new Conda environment by running:
+2. Open up terminal, and go to the folder that holds this repository. If you have cloned or downloaded this repository to your desktop, the command might look like this:
+```shell 
+cd path/to/your/repository
+```
+
+3. In your terminal, create a new Conda environment by running:
 
 ```shell
 conda env create 
