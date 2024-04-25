@@ -1,5 +1,9 @@
 # How to run our app
 
+There are two ways one can run our app, either using docker or running the app locally. 
+
+We include instructions for both approaches below. 
+
 ## Using Docker
 
 1. Download and install Docker for your operating system. You can find the installation packages and instructions on the official [docker page](https://hub.docker.com/)
