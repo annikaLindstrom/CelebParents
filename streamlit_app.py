@@ -66,10 +66,9 @@ with st.expander("**Is CelebMatch free to use?**"):
 Yes, CelebMatch is currently available for free as part of our educational project showcasing the power of machine learning.    
     ''')
 
-with st.expander("**Where can I access CelebMatch?**"):
+with st.expander("**HELP! The webcam option doesn’t work for me!**"):
     st.markdown('''
-
-CelebMatch is available online at [website URL]. You can access it from both desktop and mobile devices.
+If you run the app using Docker, the webcam version will not work. If you run the app locally, however, it will. 
     ''')
 
 with st.expander("**Who created CelebMatch?**"):
