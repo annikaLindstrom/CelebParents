@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!/Requirements.txt
+!/Dockerfile
+!/streamlit_app.py
+!/data/full/info.csv
+!/data/full/faiss_flat_ip.index
