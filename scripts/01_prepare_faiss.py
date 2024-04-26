@@ -1,3 +1,4 @@
+
 """
 This script will load the pre-calculated embeddings dataframe
 that were created using the data_processing_using_tutorial.ipynb
@@ -14,28 +15,53 @@ fetch data about the matching images.
 
 import pandas as pd
 import numpy as np
+from pathlib import Path
+parent_path = Path(__file__).parent.parent
+data_path = Path(__file__).parent.parent / 'data'
+
+print(f"finished loading libraries")
 
 #%% Configure source and destination paths
-sample_file_path = "df_with_embeddings.pkl"
-embeddings_destination_path = "../data/full/embeddings.npy"
-info_destionation_path = "../data/full/info.csv"
+sample_file_path = parent_path/"df_with_embeddings.pkl"
+embeddings_destination_path = data_path / "full" / "embeddings.npy"
+info_destination_path = data_path / "full" / "info.csv"
+info_male_destination_path = data_path / "full" / "info_male.csv"
+info_female_destination_path = data_path / "full" / "info_female.csv"
+
+embeddings_male_destination_path = data_path / "full" /"embeddings_male.npy"
+embeddings_female_destination_path = data_path / "full" /"embeddings_female.npy"
 
 #%% Load all the data
 df = pd.read_pickle(sample_file_path).reset_index()
-#%% reduce rows
-# Reduce df so that celebs with lots of entries are reduced to a max of three entries
-# Step 1: Parse the 'name' column to strip extra characters and convert to string if needed
-#df['name'] = df['name'].str.extract(r"\['(.*)'\]")
 
-# Step 2: Group by 'name' and sample up to three entries from each group
-#sampled_df = df.groupby('name').apply(lambda x: x.sample(min(len(x), 3))).reset_index(drop=True)
-
+print(f"finished loading dataframe")
 
 #%% Convert the embeddings to a
 embeddings = np.asarray([x[0]["embedding"] for x in df["face_vector_raw"].tolist()])
+print(f"finished pulling embeddings out of dataframe")
 
 #%% Write the most important columns to disk
 df[
     ["dob", "gender", "name", "celeb_names", "celeb_id", "full_path", "photo_taken"]
-].to_csv(info_destionation_path, index=False)
+].to_csv(info_destination_path, index=False)
+
 np.save(embeddings_destination_path, embeddings)
+
+print(f"finished saving data")
+
+#%% Create Female embeddings
+df_female = df[df['gender'] == 0].reset_index(drop=True)
+df_female.to_csv(info_female_destination_path, index=False)
+embeddings_female = np.asarray([x[0]["embedding"] for x in df_female["face_vector_raw"].tolist()])
+np.save(embeddings_female_destination_path, embeddings_female)
+
+print(f"finished saving female info and embeddings")
+
+#%% Create Male embeddings
+df_male = df[df['gender'] == 1].reset_index(drop=True)
+df_male.to_csv(info_male_destination_path, index=False)
+embeddings_male = np.asarray([x[0]["embedding"] for x in df_male["face_vector_raw"].tolist()])
+np.save(embeddings_male_destination_path, embeddings_male)
+print(f"finished saving male info and embeddings")
+
+print(f"script completed")
