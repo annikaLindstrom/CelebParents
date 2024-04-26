@@ -17,17 +17,17 @@ cd path/to/your/repository
 5. Once you are in your working directory in the terminal, build the Dockerfile by running:
 
 ```shell
-docker build . -t celebmatch
+docker build . -t celebparentmatch
 ```
 
 ```shell
-docker run --rm -p 8501:8501 celebmatch
+docker run --rm -p 8501:8501 celebparentmatch
 ```
 
 You should then see something like this in the output:
 
 ```
-CelebParents git:(main) ✗ docker run --rm -p 8501:8501 celebmatch
+CelebParents git:(main) ✗ docker run --rm -p 8501:8501 celebparentmatch
 
 Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
 
