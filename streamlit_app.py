@@ -1,30 +1,30 @@
 import streamlit as st
 
 # Press Release
-
-st.markdown(
+st.subheader('**Press Release**')
+with st.expander("**Press Release**"):
+    st.markdown('''
+    Press Release
+    FOR IMMEDIATE RELEASE
+    
+    [Durham, 04/2024] — A team of talented students at Duke University has unveiled a cutting-edge new application that is sure to catch the eye of pop culture enthusiasts and technology aficionados alike: the "CelebParentMatch," a celebrity look-alike generator. Developed as part of a class project, this app uses advanced machine learning techniques to analyze user-submitted photos and identify which celebrities the user most resembles and therefore identifies a set of celebrity parents for the user.
+    
+    **About CelebParentMatch** 
+    
+    CelebParentMatch harnesses the power of the extensive cropped IMDB-Faces dataset, which contains about 90,000 images of various celebrities, to offer users a fun and engaging way to connect with the world of stardom. By applying facial recognition algorithms (DeepFace, specifically), CelebParentMatch compares user facial features with those of celebrities to find the parental matches. CelebParentMatch identifies both a potential father and mother, while not all families look like this it provides a fun glimpse into your best matches.
+    
+    **Features of CelebParentMatch** 
+    
+    User-Friendly Interface: Easy upload and instant results.
+    Privacy-Focused: Your photos are your business. We forget them faster than a celebrity forgets an ex.
+    
+    CelebParentMatch is not just a source of entertainment. It has educational value in demonstrating the capabilities of artificial intelligence and machine learning, especially in the field of computer vision.
     '''
-Press Release
-FOR IMMEDIATE RELEASE
-
-[Durham, 04/2024] — A team of talented students at Duke University has unveiled a cutting-edge new application that is sure to catch the eye of pop culture enthusiasts and technology aficionados alike: the "CelebParentMatch," a celebrity look-alike generator. Developed as part of a class project, this app uses advanced machine learning techniques to analyze user-submitted photos and identify which celebrities the user most resembles and therefore identifies a set of celebrity parents for the user.
-
-**About CelebParentMatch** 
-
-CelebParentMatch harnesses the power of the extensive cropped IMDB-Faces dataset, which contains about 90,000 images of various celebrities, to offer users a fun and engaging way to connect with the world of stardom. By applying facial recognition algorithms (DeepFace, specifically), CelebParentMatch compares user facial features with those of celebrities to find the parental matches. CelebParentMatch identifies both a potential father and mother, while not all families look like this it provides a fun glimpse into your best matches.
-
-**Features of CelebParentMatch** 
-
-User-Friendly Interface: Easy upload and instant results.
-Privacy-Focused: Your photos are your business. We forget them faster than a celebrity forgets an ex.
-
-CelebParentMatch is not just a source of entertainment. It has educational value in demonstrating the capabilities of artificial intelligence and machine learning, especially in the field of computer vision.
-'''
-)
+    )
 
 st.subheader('**Technical Details**')
-
-st.markdown('''
+with st.expander("**Technical Details**"):
+    st.markdown('''
 First, we create the embeddings for each image in the IMDB-Faces dataset using DeepFace. More specifically, first we clean the dataset by removing pictures that don’t have faces in them, have more than one face or are of low quality (meaning a face score smaller than 3). Then, we extract the embeddings (a vector representation of the features) in each image using the VGG-Face algorithm as implemented in DeepFace. VGG-Face is a Very-Deep 16 layer regular convolutional neural network, first proposed in Parkhi et al. (2015), that reduces images to a 4096 vector of features. Its architecture is described in Figure 1.
 
 After creating the embeddings, we use Faiss to create a search index that matches the embeddings extracted from each image with the original dataset. Faiss allows us to efficiently search for the maximal cosine similarity between a given input image and the IMDB-Faces dataset images, and it lets us relate this maximal element to its original format.
@@ -32,6 +32,7 @@ After creating the embeddings, we use Faiss to create a search index that matche
 Therefore, the algorithm works as follows: Given an input image, first we use DeepFace to extract a 4096 vector of features (the same process done with the IMDB-Faces dataset). Then, we search for the male and female embedding in the dataset that has the largest cosine similarity with the input image. IMDB-Faces has images pre-labeled as either female or male, which facilitates this step. Finally, it returns the pair of images (male and female) that has the largest similarity with the input.
 
 ''')
+    st.image('figure01.jpg', caption='Figure 1: VGG-Face Architecture')
 
 # Acknowledgements
 st.subheader('**Acknowledgements**')
@@ -45,9 +46,9 @@ with st.expander("**Acknowledgements**"):
 
         **Rafael (rpa9)** had the idea for the project, wrote the technical details and failed miserably in making it operational. Thanks Fatima and Annika for making it happen!
         
-        **Fatima (fa83) and Rafael (rpa9)** also crafted the press release and FAQ.
+        **Fatima (fa83)** and **Rafael (rpa9)** also crafted the press release and FAQ.
         
-        **Fatima (fa83) and put together the streamlit app.
+        **Fatima (fa83)** and put together the streamlit app, scripts, and dockerfile.
 
            ''')
 
@@ -55,17 +56,24 @@ st.header('**FAQs**')
 
 with st.expander("**What is CelebParentMatch?**"):
     st.markdown('''
-        CelebParentMatch is your digital mirror into the world of fame, using facial recognition to match your photo with a celebrity who shares your star-worthy features. Just upload a picture, and see which celebrity you might replace in your next life.
+        CelebParentMatch is your digital mirror into the world of fame, using facial recognition to match your photo with a celebrity who shares your star-worthy features. Just upload a picture, and see which celebrity pair you might have descended from.
     ''')
 
 with st.expander("**How does CelebParentMatch work?**"):
     st.markdown('''
-        Simply upload your photo through our app, and our algorithm will analyze your facial features using the IMDB dataset to find the celebrity whose features most closely resemble yours. To do this, we first create a vector of features (i.e., embeddings) of the faces in the IMDB dataset. We use the DeepFace library for that. Next, in order to find look-a-likes, we have to find faces that are close matches to that of the user. To do this, we use FAISS, an advanced library for efficient similarity search and clustering of dense vectors. After extracting the embeddings of your photo using the DeepFace library, these embeddings are then compared against the pre-processed embeddings of celebrity faces from the IMDB dataset stored in our FAISS index. FAISS efficiently searches through these vectors to find the closest matches based on the cosine similarity of the embeddings. This process not only ensures fast results but also maintains high accuracy in identifying the celebrity that most resembles you. Once the closest celebrity match is found, the result is displayed to you instantly on our app.
+        Simply upload your photo through our app, and our algorithm will analyze your facial features using the IMDB dataset to find the celebrities whose features most closely resemble yours. To do this, we first create a vector of features (i.e., embeddings) of the faces in the IMDB dataset. We use the DeepFace library for that. Next, in order to find look-a-likes, we have to find faces that are close matches to that of the user. To do this, we use FAISS, an advanced library for efficient similarity search and clustering of dense vectors. After extracting the embeddings of your photo using the DeepFace library, these embeddings are then compared against the pre-processed embeddings of celebrity faces from the IMDB dataset stored in our FAISS index. FAISS efficiently searches through these vectors to find the closest matches based on the cosine similarity of the embeddings. This process not only ensures fast results but also maintains high accuracy in identifying the celebrity that most resembles you. Once the closest celebrity matches are found, the result is displayed to you instantly on our app.
         ''')
 
 with st.expander("**Why am I getting photos of the same gender? I thought you were meant to show me look alikes of both genders**"):
     st.markdown('''
 Unfortunately, our IMDB dataset has multiple images for each actor, and some photos are wrongly assigned. For instance, Sacha Baron Cohen has a female actress assigned to his folder. We leave the work of fixing this issue as a future development.
+''')
+
+with st.expander("**Why does the app assume two gender-specific parents (male and female)?**"):
+    st.markdown('''
+We recognize that the structure of families can be diverse, and not all are represented by the traditional model of one male and one female parent. The current design of our CelebParentMatch app uses a dataset that categorizes celebrities into male and female groups, which limits our ability to directly match beyond these binary categories. We're aware this does not encompass all family structures and gender identities.
+
+In future updates, we hope to incorporate a broader perspective that better reflects the diversity of family compositions and embraces a more inclusive approach to gender identity. Our goal is to ensure our app can celebrate all forms of family and identity, aligning more closely with real-world diversity.
 ''')
 
 with st.expander("**Is my photo secure with CelebParentMatch?**"):
