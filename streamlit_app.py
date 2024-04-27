@@ -7,12 +7,14 @@ st.markdown(
 Press Release
 FOR IMMEDIATE RELEASE
 
-[Durham, 04/2024] — A team of talented students at Duke University has unveiled a cutting-edge new application that is sure to catch the eye of pop culture enthusiasts and technology aficionados alike: the "CelebParentMatch," a celebrity look-alike generator. Developed as part of a class project, this app uses advanced machine learning techniques to analyze user-submitted photos and identify which celebrity the user most resembles.
+[Durham, 04/2024] — A team of talented students at Duke University has unveiled a cutting-edge new application that is sure to catch the eye of pop culture enthusiasts and technology aficionados alike: the "CelebParentMatch," a celebrity look-alike generator. Developed as part of a class project, this app uses advanced machine learning techniques to analyze user-submitted photos and identify which celebrities the user most resembles and therefore identifies a set of celebrity parents for the user.
 
-**About CelebParentMatch**
-CelebParentMatch harnesses the power of the extensive cropped IMDB-Faces dataset, which contains about 90,000 images of various celebrities, to offer users a fun and engaging way to connect with the world of stardom. By applying facial recognition algorithms (DeepFace, specifically), CelebParentMatch compares user facial features with those of celebrities to find a match.
+**About CelebParentMatch** 
 
-**Features of CelebParentMatch**
+CelebParentMatch harnesses the power of the extensive cropped IMDB-Faces dataset, which contains about 90,000 images of various celebrities, to offer users a fun and engaging way to connect with the world of stardom. By applying facial recognition algorithms (DeepFace, specifically), CelebParentMatch compares user facial features with those of celebrities to find the parental matches. CelebParentMatch identifies both a potential father and mother, while not all families look like this it provides a fun glimpse into your best matches.
+
+**Features of CelebParentMatch** 
+
 User-Friendly Interface: Easy upload and instant results.
 Privacy-Focused: Your photos are your business. We forget them faster than a celebrity forgets an ex.
 
@@ -39,11 +41,13 @@ with st.expander("**Acknowledgements**"):
 
         **Annika (amh227)** laid the foundation with our starter code which processed the images and created embeddings, all while juggling the joys and jitters of welcoming a new baby into her life.
 
-        **Fatima (fa83)** then extended that code to incorporate the [DeepFace library](https://github.com/serengil/deepface/tree/master). With the indispensable aids of the internet and Stack Overflow, and frequent recourse to the 'phone a friend' lifeline, she developed the code that calculates the distances between user images and celebrities using [FAISS](https://ai.meta.com/tools/faiss/).  Much like managing a 4-month-old, she handled unexpected bugs with grace and a sense of humor.
+        **Fatima (fa83)** then extended that code to incorporate the [DeepFace library](https://github.com/serengil/deepface/tree/master). With the indispensable aids of the internet and Stack Overflow, and frequent recourse to the 'phone a friend' lifeline, she developed the code that calculates the distances between user images and celebrities using [FAISS](https://ai.meta.com/tools/faiss/).  
 
         **Rafael (rpa9)** had the idea for the project, wrote the technical details and failed miserably in making it operational. Thanks Fatima and Annika for making it happen!
-
-        **Fatima (fa83)** also crafted the press release and FAQ, and put together the streamlit.
+        
+        **Fatima (fa83) and Rafael (rpa9)** also crafted the press release and FAQ.
+        
+        **Fatima (fa83) and put together the streamlit app.
 
            ''')
 
@@ -61,8 +65,8 @@ with st.expander("**How does CelebParentMatch work?**"):
 
 with st.expander("**Why am I getting photos of the same gender? I thought you were meant to show me look alikes of both genders**"):
     st.markdown('''
-The IMDB dataset unfortunately has some mislabeled images. Some photos, let's say of a woman, may be attributed to a male celebrity. So, there is definitely room for improvement. First things first, the data needs to be fixed.
-    ''')
+Unfortunately, our IMDB dataset has multiple images for each actor, and some photos are wrongly assigned. For instance, Sacha Baron Cohen has a female actress assigned to his folder. We leave the work of fixing this issue as a future development.
+''')
 
 with st.expander("**Is my photo secure with CelebParentMatch?**"):
     st.markdown('''

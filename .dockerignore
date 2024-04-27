@@ -7,3 +7,5 @@
 !/streamlit_app.py
 !/data/full/info.csv
 !/data/full/faiss_flat_ip.index
+!/data/full/faiss_flat_ip_female.index
+!/data/full/faiss_flat_ip_male.index
