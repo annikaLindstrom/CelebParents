@@ -9,10 +9,11 @@ RUN pip install -r requirements.txt
 WORKDIR /app
 COPY data/full/info.csv data/full/info.csv
 COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip.index
-COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip_female.index
-COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip_male.index
-COPY celeb_parents.py streamlit_app.py
+COPY data/full/faiss_flat_ip_female.index data/full/faiss_flat_ip_female.index
+COPY data/full/faiss_flat_ip_male.index data/full/faiss_flat_ip_male.index
+COPY celeb_parents.py celeb_parents.py
+COPY pages pages
 
 EXPOSE 8501
 # HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "celeb_parents.py", "--server.port=8501", "--server.address=0.0.0.0"]
