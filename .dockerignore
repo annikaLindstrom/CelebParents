@@ -4,7 +4,7 @@
 # Allow files and directories
 !/Requirements.txt
 !/Dockerfile
-!/streamlit_app.py
+!/celeb_parents.py
 !/data/full/info.csv
 !/data/full/faiss_flat_ip.index
 !/data/full/faiss_flat_ip_female.index
