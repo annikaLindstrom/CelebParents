@@ -9,6 +9,8 @@ RUN pip install -r requirements.txt
 WORKDIR /app
 COPY data/full/info.csv data/full/info.csv
 COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip.index
+COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip_female.index
+COPY data/full/faiss_flat_ip.index data/full/faiss_flat_ip_male.index
 COPY streamlit_app.py streamlit_app.py
 
 EXPOSE 8501

@@ -1,3 +1,11 @@
 data/full/faiss_flat_ip.index
 .jupyter
 .ipynb_checkpoints
+data/full/faiss_flat_ip_female.index
+data/full/faiss_flat_ip_male.index
+test_faces
+imdb_crop
+imdb
+df_with_embeddings.pkl
+temp_image.jpg
+data/full/embeddings*

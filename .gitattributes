@@ -1,2 +1,4 @@
 data/full/faiss_flat_ip.index filter=lfs diff=lfs merge=lfs -text
+data/full/faiss_flat_ip_male.index filter=lfs diff=lfs merge=lfs -text
+data/full/faiss_flat_ip_female.index filter=lfs diff=lfs merge=lfs -text
 data/full/info.csv filter=lfs diff=lfs merge=lfs -text
