@@ -57,7 +57,7 @@ conda env create
 
 4. Run the application using Streamlit. In the terminal, execute:
 ```shell
-streamlit run streamlit_app.py
+streamlit run celeb_parents.py
 ```
 
 This should open up your browser, and you should be able to use the app.
