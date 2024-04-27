@@ -75,7 +75,9 @@ I have already created the embeddings and I've indexed them using FAISS.
 
 3. `02_build_and_save_search_index.py` This script uses the FAISS library to create a search index with face embeddings. It uses normalized embeddings to build a cosine-similarity-based search index, making it super efficient to retrieve images based on facial similarity.
 
-4. `03_use_index_on_test_image.py` The script performs image matching by finding the closest celebrity look-alikes to a test image using precomputed embeddings and a FAISS search index, created in the previous script. To find celeb look a likes to a test image, we extract facial embeddings from the test image, normalize them, and query the index to find the nearest celebrity faces based on those embeddings.
+4. `02b_build_and_save_search_index_for_male_female.py` This script does exactly what the previous script does, except it creates separate indicies for the female celebs and separate indices for the male celebs. This will allow us to find separate matches in each group.
+
+5. `03_use_index_on_test_image.py` The script performs image matching by finding the closest celebrity look-alikes to a test image using precomputed embeddings and a FAISS search index, created in the previous script. To find celeb look a likes to a test image, we extract facial embeddings from the test image, normalize them, and query the index to find the nearest celebrity faces based on those embeddings.
 
 ## `streamlit_app.py` script
 
