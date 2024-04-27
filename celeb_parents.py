@@ -27,6 +27,7 @@ from sklearn.preprocessing import normalize
 
 # Header for image choice
 st.header("Upload your photo or capture one with your webcam")
+st.markdown("Note: Sometimes the photo will not match the celebrity name. This is an error in the IMDB dataset. The dataset has multiple images for each actor, and some photos are wrongly assigned. For instance, Sacha Baron Cohen has a female actress assigned to his folder. We leave the work of fixing this issue as a future development.")
 
 # Initialize session state variables if not already set
 if 'uploaded_file' not in st.session_state:
